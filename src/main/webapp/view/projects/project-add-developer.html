@@ -24,13 +24,13 @@
 
         <button class="menu-button" type="submit">Add</button>
     </form>
-
-    <h4 th:if="${message.length()} != 0" th:text="'Result: ' + ${message}"></h4>
-    <h4 th:if="${errorMessage.length()} != 0" th:text="'Error: ' + ${errorMessage}"></h4>
-
     <form action="/projects" method="get">
         <button class="menu-button" type="submit">Back</button>
     </form>
+    <h4 th:if="${message.length()} != 0" th:text="'Result: ' + ${message}"></h4>
+    <h4 th:if="${errorMessage.length()} != 0" th:text="'Error: ' + ${errorMessage}"></h4>
+
+
 </div>
 </body>
 </html>

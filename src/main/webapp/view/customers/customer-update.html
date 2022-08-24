@@ -27,11 +27,14 @@
 
         <button class="menu-button" type="submit">Update</button>
     </form>
-    <h4 th:if="${message.length()} != 0" th:text="'Result: ' + ${message}"></h4>
-    <h4 th:if="${errorMessage.length()} > 4" th:text="'Error: ' + ${errorMessage}"></h4>
+
     <form action="/customers" method="get">
         <button class="menu-button" type="submit">Back</button>
     </form>
+
+    <h4 th:if="${message.length()} != 0" th:text="'Result: ' + ${message}"></h4>
+    <h4 th:if="${errorMessage.length()} > 4" th:text="'Error: ' + ${errorMessage}"></h4>
+
 </div>
 </body>
 </html>

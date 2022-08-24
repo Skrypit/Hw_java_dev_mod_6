@@ -28,7 +28,10 @@
 
         <button class="menu-button" type="submit" >Send</button>
     </form>
-
+    <h4 th:if="${errorMessage} != ''" th:text="'Error: ' + ${errorMessage}"></h4>
+    <form action="/projects" method="get">
+        <button class="menu-button" type="submit">Back</button>
+    </form>
     <br>
     <div class="frame" th:if="${project} != ''">
         <table>
@@ -60,10 +63,7 @@
             </tbody>
         </table>
     </div>
-    <h4 th:if="${errorMessage} != ''" th:text="'Error: ' + ${errorMessage}"></h4>
-    <form action="/projects" method="get">
-        <button class="menu-button" type="submit">Back</button>
-    </form>
+
 </div>
 </body>
 </html>
