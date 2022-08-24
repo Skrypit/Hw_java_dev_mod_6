@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Delete developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&family=Roboto:wght@400;500;700;900&display=swap"
+            rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../css/index.css"/>
+</head>
+<body class="hero">
+<div class="container">
+    <h1>Delete developer</h1>
+    <h2>Enter developer name</h2>
+    <form class="developer-delete" action="/developer/delete" method="post">
+        <p>First name : <input type="text" value="" name="setFirstName" id="setFirstName"></p>
+        <p>Last name : <input type="text" value="" name="setLastName" id="setLastName"></p>
+        <button class="menu-button" type="submit">Delete</button>
+    </form>
+    <form action="/developers" method="get">
+        <button class="menu-button" type="submit">Back</button>
+    </form>
+
+    <h4 th:if="${message.length()} != 0" th:text="'Result: ' + ${message}"></h4>
+    <h4 th:if="${errorMessage.length()} > 4" th:text="'Error: ' + ${errorMessage}"></h4>
+
+</div>
+</body>
+</html>

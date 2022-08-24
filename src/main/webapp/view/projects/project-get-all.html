@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Show all projects</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&family=Roboto:wght@400;500;700;900&display=swap"
+            rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../css/index.css"/>
+</head>
+<body class="hero">
+<div class="container">
+    <style>
+        .frame table, .frame table td {
+            border: 1px solid black;
+        }
+
+    </style>
+    <h1>Show all projects</h1>
+    <h2>Press "Show" to see info</h2>
+    <br>
+    <div class="frame" th:if="${project} != 'null'">
+        <table>
+            <thead>
+            <tr>
+                <td>Creation date</td>
+                <td>Project name</td>
+                <td>Total developers</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="project: ${project}">
+                <td th:text="${project.creationDate}"></td>
+                <td th:text="${project.projectName}"></td>
+                <td th:text="${project.totalDevelopers}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <h4 th:if="${errorMessage} != ''" th:text="'Error: ' + ${errorMessage}"></h4>
+    <br>
+    <form action="/project/get-all" method="post">
+        <button class="menu-button" type="submit">Show</button>
+    </form>
+    <form action="/projects" method="get">
+        <button class="menu-button" type="submit">Back</button>
+    </form>
+</div>
+</body>
+</html>

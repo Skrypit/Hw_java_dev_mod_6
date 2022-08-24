@@ -1,0 +1,154 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  color: #212121;
+  font-style: normal;
+}
+
+.list {
+  list-style: none;
+}
+.link {
+  text-decoration: none;
+}
+
+/* ========== HERO ==========*/
+.hero {
+  background: #eff0fc;
+  width: 100%;
+  height: 600px;
+  left: 0px;
+  top: 80px;
+}
+.main-title {
+  background-color: rgba(47, 48, 58, 1);
+  font-weight: 900;
+  font-size: 44px;
+  line-height: 1.36;
+  text-align: center;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+
+  color: #ffffff;
+
+  position: absolute;
+  width: 696px;
+  height: 120px;
+  left: 452px;
+  top: 280px;
+}
+
+.menu-button {
+  width: 50%;
+  height: 50px;
+  left: 700px;
+  top: 430px;
+
+  background: #1d8ae2;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 30px;
+
+  display: flex;
+
+  letter-spacing: 0.06em;
+
+  color: #ffffff;
+  margin: 0 auto 5px;
+
+  justify-content: center;
+  align-items: center;
+}
+.menu-button:focus,
+.menu-button:hover {
+  background-color: #72b8f1;
+}
+
+.container {
+  text-align: center;
+}
+/* ========== COMPANY ==========*/
+.company-create p, .company-delete p, .company-get p{
+    width: 50%;
+    margin: 0 auto 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.company-create input{
+    width: 70%;
+}
+
+.company-delete input, .company-get input{
+width: 86%}
+
+table{
+width: 50%;
+margin: 0 auto;
+}
+/* ========== /COMPANY ==========*/
+/* ========== CUSTOMER ==========*/
+.customer-create p {
+ width: 50%;
+    margin: 0 auto 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.customer-create input{
+    width: 70%;
+}
+.customer-delete input {
+    width: 44%
+}
+.customer-get input {
+    width: 44%
+}
+
+/* ========== /CUSTOMER ==========*/
+/* ========== PROJECT ==========*/
+.project-create p {
+    width: 50%;
+    margin: 0 auto 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.project-create input{
+    width: 70%;
+}
+.project-delete input {
+    width: 43%
+}
+.project-get input {
+    width: 42.5%
+}
+.project-sum input {
+    width: 43%
+}
+
+/* ========== /PROJECT ==========*/
+/* ========== DEVELOPER ==========*/
+.developer-create p {
+ width: 50%;
+    margin: 0 auto 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.developer-create input{
+    width: 70%;
+}
+
+.developer-delete input {
+width: 44%
+}
+.developer-get input {
+width: 44.5%
+}
+/* ========== /DEVELOPER ==========*/
+
+/* ========== /HERO ==========*/
