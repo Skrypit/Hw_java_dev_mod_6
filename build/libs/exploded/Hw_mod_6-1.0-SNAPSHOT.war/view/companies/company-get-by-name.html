@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Get company info</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&family=Roboto:wght@400;500;700;900&display=swap"
+            rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../css/index.css"/>
+</head>
+<body class="hero">
+<div class="container">
+    <style>
+        .frame table, .frame table td {
+            border: 1px solid black;
+        }
+
+    </style>
+    <h1>Get company info</h1>
+    <h2>Enter company name</h2>
+    <form class="company-get" action="/company/get-by-name" method="post">
+        <p>Name : <input type="text" value="" name="setCompanyName" id="setCompanyName"></p>
+        <button class="menu-button" type="submit">Show</button>
+    </form>
+    <br>
+    <div class="frame" th:if="${company} != ''">
+        <table>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Residence</th>
+            </tr>
+            </thead>
+            <tbody>
+            <div th:if="${company} == 'null'">
+                <tr>
+                    <td>null</td>
+                    <td>null</td>
+                    <td>null</td>
+                </tr>
+            </div>
+            <div th:if="${company} != 'null'">
+                <tr>
+                    <td th:text="${company.companyId}"></td>
+                    <td th:text="${company.companyName}"></td>
+                    <td th:text="${company.companyResidence}"></td>
+                </tr>
+            </div>
+            </tbody>
+        </table>
+    </div>
+    <h4 th:if="${errorMessage} != ''" th:text="'Error: ' + ${errorMessage}"></h4>
+    <form action="/companies" method="get">
+        <button class="menu-button" type="submit">Back</button>
+    </form>
+</div>
+</body>
+</html>

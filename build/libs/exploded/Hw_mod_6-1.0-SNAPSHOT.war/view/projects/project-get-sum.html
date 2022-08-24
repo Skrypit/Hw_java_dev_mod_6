@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Show salaries sum</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&family=Roboto:wght@400;500;700;900&display=swap"
+            rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../css/index.css"/>
+</head>
+<body class="hero">
+<div class="container">
+    <style>
+        .frame table, .frame table td {
+            border: 1px solid black;
+        }
+
+    </style>
+    <h1>Show total sum</h1>
+    <h2>Enter a project's name to see the sum of developers' salaries</h2>
+
+    <div class="frame" th:if="${sum} != ''">
+        <table>
+            <thead>
+            <tr>
+                <td>Sum</td>
+            </tr>
+            </thead>
+            <tbody>
+            <div th:if="${sum} != 0">
+                <tr>
+                    <td th:text="${sum}"></td>
+                </tr>
+            </div>
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <form class="project-sum" action="/project/get-sum" method="post">
+        <p>Project name : <input type="text" value="" name="setProjectName" id="setProjectName"></p>
+        <br>
+        <button class="menu-button" type="submit" >Show</button>
+    </form>
+    <h4 th:if="${errorMessage} != ''" th:text="'Error: ' + ${errorMessage}"></h4>
+    <form action="/projects" method="get">
+        <button class="menu-button" type="submit" >Back</button>
+    </form>
+</div>
+</body>
+</html>

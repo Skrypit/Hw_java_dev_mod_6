@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Get project info</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+            href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&family=Roboto:wght@400;500;700;900&display=swap"
+            rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../css/index.css" />
+</head>
+<body class="hero">
+<div class="container">
+    <style>
+        .frame table, .frame table td {
+            border: 1px solid black;
+        }
+    </style>
+    <h1>Get project info</h1>
+    <h2>Enter projects name</h2>
+    <form class="project-get" action="/project/get-by-name" method="post">
+        <p>Projects name : <input type="text" value="" name="setProjectName" id="setProjectName"></p>
+        <button class="menu-button" type="submit" >Send</button>
+    </form>
+
+    <br>
+    <div class="frame" th:if="${project} != ''">
+        <table>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            <div th:if="${project} == 'null'">
+                <tr>
+                    <td >null</td>
+                    <td >null</td>
+                    <td >null</td>
+                    <td >null</td>
+                </tr>
+            </div>
+            <div th:if="${project} != 'null'">
+                <tr>
+                    <td th:text="${project.projectId}"></td>
+                    <td th:text="${project.projectName}"></td>
+                    <td th:text="${project.projectType}"></td>
+                    <td th:text="${project.projectDescription}"></td>
+                </tr>
+            </div>
+            </tbody>
+        </table>
+    </div>
+    <h4 th:if="${errorMessage} != ''" th:text="'Error: ' + ${errorMessage}"></h4>
+    <form action="/projects" method="get">
+        <button class="menu-button" type="submit">Back</button>
+    </form>
+</div>
+</body>
+</html>

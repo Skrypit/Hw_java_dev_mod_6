@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Developers by level</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+            href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&family=Roboto:wght@400;500;700;900&display=swap"
+            rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../css/index.css" />
+</head>
+<body class="hero">
+<div class="container">
+    <style>
+        .frame table, .frame table td {
+            border: 1px solid black;
+        }
+    </style>
+    <h1>Get developers info</h1>
+    <h2>Enter skills level (Junior, Middle, Senior)</h2>
+
+    <form class="developer-get" action="/developer/get-by-level" method="post">
+        <p>Skills level : <input type="text" value="" name="setLevel" id="setLevel"></p>
+        <br>
+        <button class="menu-button" type="submit" >Send</button>
+    </form>
+
+    <br>
+    <div class="frame" th:if="${developer} != ''">
+        <table>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Age</th>
+                <th>Sex</th>
+            </tr>
+            </thead>
+            <tbody>
+            <div th:if="${developer} == 'null'">
+                <tr>
+                    <td >null</td>
+                    <td >null</td>
+                    <td >null</td>
+                    <td >null</td>
+                    <td >null</td>
+                </tr>
+            </div>
+            <div th:if="${developer} != 'null'">
+                <tr>
+                    <td th:text="${developer.developerId}"></td>
+                    <td th:text="${developer.developerFirstName}"></td>
+                    <td th:text="${developer.developerLastName}"></td>
+                    <td th:text="${developer.developerAge}"></td>
+                    <td th:text="${developer.developerSex}"></td>
+                </tr>
+            </div>
+            </tbody>
+        </table>
+    </div>
+
+    <h4 th:if="${errorMessage} != ''" th:text="'Error: ' + ${errorMessage}"></h4>
+    <form action="/developers" method="get">
+        <button class="menu-button" type="submit">Back</button>
+    </form>
+</div>
+</body>
+</html>
